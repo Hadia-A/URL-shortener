@@ -1,38 +1,36 @@
-@URL Shortener
-A simple and efficient desktop application for shortening URLs, built with Python's Tkinter library.
+URL Shortener
+A simple Python desktop application for shortening URLs using Tkinter.
 
-#Features
-User-Friendly Interface: Designed with Tkinter, offering a clean and intuitive interface for entering and shortening URLs.
-URL Shortening: Leverages the pyshorteners library to create short URLs using the TinyURL service.
-Clipboard Copy: Instantly copy the shortened URL to your clipboard with one click, powered by pyperclip.
-Error Handling: Provides feedback on invalid URLs or any issues encountered during the shortening process.
-#Requirements
+Features
+User-Friendly Interface: A clean and intuitive GUI built with Tkinter.
+URL Shortening: Uses pyshorteners to generate short URLs via TinyURL.
+Clipboard Copy: Copy shortened URLs directly to your clipboard with pyperclip.
+Error Handling: Provides clear feedback for invalid URLs and errors.
+Requirements
 Python 3.x
-Tkinter (usually included with Python)
+Tkinter (included with Python)
 pyshorteners
 pyperclip
 Installation
-#Clone the repository:
+Clone this repository:
+
 bash
 Copy code
 git clone https://github.com/yourusername/url-shortener.git
 cd url-shortener
-#Install the required Python libraries:
-bash
+Install the dependencies:
+
 Copy code
 pip install -r requirements.txt
-#Usage
-Run the url_shortener.py script to start the application:
+Usage
+Run the application with:
 
-bash
 Copy code
 python url_shortener.py
-Enter a URL into the input field and click "Shorten URL" to generate a shortened version. You can then click "Copy to Clipboard" to easily share it.
-
-#Screenshots
-![image](https://github.com/user-attachments/assets/dc9dded7-128f-45f8-a10b-9467a8163173)
-
+Enter a URL into the input field.
+Click Shorten URL to generate a shortened version.
+Click Copy to Clipboard to copy the shortened URL.
 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License. See the LICENSE file for more details
 
 
