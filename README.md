@@ -1,64 +1,38 @@
-# URL-shortener
- python based URL shortener
- pip install pyshorteners
+@URL Shortener
+A simple and efficient desktop application for shortening URLs, built with Python's Tkinter library.
 
-import tkinter as tk
-from tkinter import messagebox
-import pyshorteners
-import pyperclip
+#Features
+User-Friendly Interface: Designed with Tkinter, offering a clean and intuitive interface for entering and shortening URLs.
+URL Shortening: Leverages the pyshorteners library to create short URLs using the TinyURL service.
+Clipboard Copy: Instantly copy the shortened URL to your clipboard with one click, powered by pyperclip.
+Error Handling: Provides feedback on invalid URLs or any issues encountered during the shortening process.
+#Requirements
+Python 3.x
+Tkinter (usually included with Python)
+pyshorteners
+pyperclip
+Installation
+#Clone the repository:
+bash
+Copy code
+git clone https://github.com/yourusername/url-shortener.git
+cd url-shortener
+#Install the required Python libraries:
+bash
+Copy code
+pip install -r requirements.txt
+#Usage
+Run the url_shortener.py script to start the application:
 
-def shorten_url():
-    long_url = entry.get()
-    if not long_url:
-        messagebox.showerror("Error", "Please enter a valid URL")
-        return
+bash
+Copy code
+python url_shortener.py
+Enter a URL into the input field and click "Shorten URL" to generate a shortened version. You can then click "Copy to Clipboard" to easily share it.
 
-    try:
-        shortener = pyshorteners.Shortener()
-        short_url = shortener.tinyurl.short(long_url)
-        result_entry.config(state=tk.NORMAL)
-        result_entry.delete(0, tk.END)
-        result_entry.insert(0, short_url)
-        result_entry.config(state=tk.DISABLED)
-        copy_button.config(state=tk.NORMAL)
-    except Exception as e:
-        result_entry.config(state=tk.NORMAL)
-        result_entry.delete(0, tk.END)
-        result_entry.insert(0, f"Error: {e}")
-        result_entry.config(state=tk.DISABLED)
-        copy_button.config(state=tk.DISABLED)
+#Screenshots
+![image](https://github.com/user-attachments/assets/dc9dded7-128f-45f8-a10b-9467a8163173)
 
-def copy_to_clipboard():
-    short_url = result_entry.get()
-    if short_url:
-        pyperclip.copy(short_url)
-        messagebox.showinfo("Copied", "Shortened URL copied to clipboard!")
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-# Initialize the main window
-root = tk.Tk()
-root.title("URL Shortener")
-root.geometry("500x250")
-root.config(bg="#f4f4f4")
 
-# URL Entry Label
-label = tk.Label(root, text="Enter the URL to shorten:", font=("Arial", 14), bg="#f4f4f4")
-label.pack(pady=10)
-
-# URL Entry Field
-entry = tk.Entry(root, width=50, font=("Arial", 12), bd=2, relief=tk.SUNKEN)
-entry.pack(pady=5)
-
-# Shorten Button
-shorten_button = tk.Button(root, text="Shorten URL", command=shorten_url, font=("Arial", 12), bg="#007acc", fg="white", bd=0, relief=tk.FLAT)
-shorten_button.pack(pady=10)
-
-# Result Entry Field (disabled initially)
-result_entry = tk.Entry(root, width=50, font=("Arial", 12), bd=2, relief=tk.SUNKEN, state=tk.DISABLED)
-result_entry.pack(pady=5)
-
-# Copy Button (disabled initially)
-copy_button = tk.Button(root, text="Copy to Clipboard", command=copy_to_clipboard, font=("Arial", 12), bg="#4CAF50", fg="white", bd=0, relief=tk.FLAT, state=tk.DISABLED)
-copy_button.pack(pady=10)
-
-# Run the GUI loop
-root.mainloop()
