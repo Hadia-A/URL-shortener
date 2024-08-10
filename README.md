@@ -1,6 +1,7 @@
 # URL-shortener
  python based URL shortener
- 
+ pip install pyshorteners
+
 import tkinter as tk
 from tkinter import messagebox
 import pyshorteners
